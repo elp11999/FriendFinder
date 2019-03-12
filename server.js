@@ -7,6 +7,12 @@
 //
 // server.js - Entry point to the Friend Finder application 
 
+//
+//  Heroku Deployment URL
+//
+//  https://secret-brook-27994.herokuapp.com/
+//
+
 // Load the application data objects
 var surveysData = require("./app/data/friends");
 
