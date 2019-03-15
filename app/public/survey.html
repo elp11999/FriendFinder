@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Friend Finder</title>
-  <!-- Latest compiled and minified CSS & JS -->
+  <!-- Setup CSS for Bootstrap, JQuery and Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -14,29 +14,49 @@
 <body>
 
   <div class="container">
-      <h2>Survey Questions</h2>
-      <hr>
+
     <div class="row">
 
       <div class="col-lg-12">
         
-        <form>
-          <h3>About You</h3>
-          <div class="form-group">
-            <label for="name">Name (Required)</label>
-            <input type="name" class="form-control" id="name">
-          </div>
-          <div class="form-group">
-            <label for="photo">Link to Photo Image (Required)</label>
-            <input type="photo" class="form-control" id="photo">
-          </div>
-        </form>
+        <!-- Personal Information -->
+        <div class="form-group">
+          <label for="name"><h4>Your Name</h4></label>
+          <input type="name" class="form-control" id="name">
+        </div>
+
+        <div class="form-group">
+          <label for="photo"><h4>Your photo link</h4></label>
+          <input type="photo" class="form-control" id="photo">
+        </div>
+
+        <div class="form-group">
+            <h4>Your gender</h4>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="gender">
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Other</option>
+            </select>
+        </div>
         <hr>
 
-        <div class="survey-question">          
-            <h3>Question 1</h3>
-            <p>Your mind is always buzzing with unexplored ideas and plans.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q1">
+        <!-- Gender picker -->
+        <div class="form-group">
+            <h6>What gender are your interested in?</h6>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="desired-gender">
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Other</option>
+              <option value="4">Pick for me</option>
+            </select>
+        </div>
+
+        <!-- Survey Information -->
+        <h4>Survey Questions</h4>
+
+        <div class="survey-question">
+            <p><h6>1. You spend too much time on FaceBook.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq1">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -45,11 +65,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 2</h3>
-            <p>Generally speaking, you rely more on your experience than your imagination.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q2">
+
+        <div class="survey-question"> 
+            <p><h6>2. You feel gun control laws are too strict.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq2">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -58,11 +77,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 3</h3>
-            <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q3">
+
+        <div class="survey-question">  
+            <p><h6>3. You like to drink wine with dinner.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq3">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -71,11 +89,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 4</h3>
-            <p>You rarely do something just out of sheer curiosity.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q4">
+
+        <div class="survey-question"> 
+            <p><h6>4. You belive Donald Trump will get his wall built.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq4">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -84,11 +101,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 5</h3>
-            <p>People can rarely upset you.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q5">
+
+        <div class="survey-question"> 
+            <p><h6>5. You believe Rap is music.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq5">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -97,11 +113,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 6</h3>
-            <p>It is often difficult for you to relate to other people’s feelings.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q6">
+
+        <div class="survey-question"> 
+            <p><h6>6. Religion is an important part of your life.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq6">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -110,11 +125,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 7</h3>
-            <p>In a discussion, truth should be more important than people’s sensitivities.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q7">
+
+        <div class="survey-question">   
+            <p><h6>7. You enjoy bathroom humor.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq7">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -123,11 +137,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 8</h3>
-            <p>You rarely get carried away by fantasies and ideas.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q8">
+
+        <div class="survey-question"> 
+            <p><h6>8. You would like to space travel.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq8">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -136,11 +149,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 9</h3>
-            <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q9">
+
+        <div class="survey-question"> 
+            <p><h6>9. You feel that socialism is superior to capitalism.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq9">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -149,11 +161,10 @@
               <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
-        <div class="survey-question">          
-            <h3>Question 10</h3>
-            <p>You feel more energetic after spending time with a group of people.</p>
-            <select class="mdb-select md-form colorful-select dropdown-primary" id="q10">
+
+        <div class="survey-question">  
+            <p><h6>10. You enjoy watching sports on television.</h6></p>
+            <select class="mdb-select md-form colorful-select dropdown-primary" id="sq10">
               <option value="">Select Answer</option> 
               <option value="1">1 (Strongly Disagree)</option>
               <option value="2">2</option>
@@ -168,14 +179,13 @@
     <button class="btn btn-primary btn-lg btn-block" id="survey-button"><span class="fa fa-check-circle-o"></span> Submit</button>
     <hr>
     
-    <a href="api/friends"><span class="fa"></span>Api Friends List</a>
+    <a href="api/friends">Api Friends List</a>
   </div> 
   
-  <!-- Modal -->
+  <!-- Search Result Modal Dialog -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -183,8 +193,8 @@
         </div>
         <div class="modal-body">
           <h2><span>Meet your new friend</h2>
-          <h2 id="new-friends-name"><strong>Keith Emerson</strong>.</h2>
-          <img id="new-friends-image" src="data:image/jpeg;base64,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" alt="new-friends-image" width="125" height="150">
+          <h2 id="new-friends-name"><strong></strong>.</h2>
+          <img id="new-friends-image" src="" alt="new-friends-image" width="125" height="150">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -194,12 +204,15 @@
     </div>
   </div> 
 
+   <!-- Javascript to handle the users input -->
   <script type="text/javascript">
 
     // Object to hold survey information
-    var surveyAnswers = {
+    var surveyInfo = {
       name: "",
       photo: "",
+      gender: "",
+      desiredGender: "",
       scores:
        [ "",
          "",
@@ -218,19 +231,25 @@
     function checkUserInput() {
 
       // Check for name
-      surveyAnswers.name = $("#name").val().trim(); 
-      if (surveyAnswers.name.length == 0)
+      surveyInfo.name = $("#name").val().trim(); 
+      if (surveyInfo.name.length == 0)
         return false;       
 
       // Check for photo
-      surveyAnswers.photo = $("#photo").val().trim(); 
-      if (surveyAnswers.photo.length == 0)
+      surveyInfo.photo = $("#photo").val().trim(); 
+      if (surveyInfo.photo.length == 0)
         return false;
+
+      // Get Gender
+      surveyInfo.gender = $("#gender").val().trim(); 
+
+      // Get desired Gender
+      surveyInfo.desiredGender = $("#desired-gender").val().trim(); 
       
-      // Check all anwsers
+      // Check all survey questions
       for (var i = 0; i < 10; i++) {
-        surveyAnswers.scores[i] = $("#q" + (i + 1)).val().trim();
-        if (surveyAnswers.scores[i].length == 0)
+        surveyInfo.scores[i] = $("#sq" + (i + 1)).val().trim();
+        if (surveyInfo.scores[i].length == 0)
           return false;
       }
 
@@ -247,12 +266,12 @@
         alert("Please enter all survey information.");
         return;
       }
-      console.log(surveyAnswers);
+      //console.log(surveyAnswers);
 
       // Post survey answers to the server
-      $.post("/api/friends", surveyAnswers)
+      $.post("/api/friends", surveyInfo)
           .then(function(data) {
-            console.log("survey", data);
+            //console.log("survey", data);
 
             // Display modal dialog with the new friends name and image
             $("#new-friends-name").text(data.name);

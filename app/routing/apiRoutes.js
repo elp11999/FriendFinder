@@ -10,6 +10,14 @@
 // Load the application data objects
 var surveysData = require("../data/friends");
 
+// Function to check for duplicate name
+var isDuplicateName = (newSurvey) => {
+  var value = surveysData.find(function(survey) {
+    return (newSurvey.name === survey.name);
+  });
+  return value;
+}
+
 // Function to find the best survey match
 var findMatch = (newSurvey) => {
   var currentDifference = 0;
@@ -17,21 +25,35 @@ var findMatch = (newSurvey) => {
   var currentScores = [];
   var matchedSurvey = {};
 
-  // Convert new surveys scores to integers
+  // Get the desired gender
+  var desiredGender = newSurvey.desiredGender;
+  if (desiredGender === "4")
+    desiredGender = Math.floor(Math.random() * (4 - 1) + 1).toString();
+
+  // Create array of friends based on gender
+  var genderArray = surveysData.filter(function(survey) {
+    // Don't match on identical names...
+    if (survey.name !== newSurvey.name)
+      if (survey.gender === desiredGender) return survey;
+  });
+
+  // Convert new friends survey scores to integers
   var newScores = newSurvey.scores.map(Number);
 
   // Find best match
-  surveysData.forEach(function(survey) {
+  genderArray.forEach(function(survey) {
 
-    // Convert current survey scores to integers
+    // Convert array items survey scores to integers
     currentScores = survey.scores.map(Number);
 
-    // Find the best survey match
+    // Compute the differences between the surveys
     newDifference = 0;
     for (var i = 0; i < currentScores.length; i++) {
       newDifference += Math.abs(newScores[i] - currentScores[i]);
     }
-    console.log("newDifference=" + newDifference + " currentDifference=" + currentDifference);
+    //console.log("newDifference=" + newDifference + " currentDifference=" + currentDifference);
+    
+    // Find the best survey match
     if (currentDifference == 0 || newDifference < currentDifference) {
       matchedSurvey = survey;
       currentDifference = newDifference;
@@ -59,8 +81,9 @@ module.exports = function(app) {
     // Find best survey match
     matchedSurvey = findMatch(req.body);
 
-    // Push new survey to the current list of surveys
-    surveysData.push(req.body);
+    // Check for duplicate name before pushing new friend to current list
+    if (isDuplicateName(req.body) == null)
+      surveysData.push(req.body);
 
     // Return the best match
     res.json(matchedSurvey);
