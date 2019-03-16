@@ -8,11 +8,11 @@
 // apiRoutes.js - Express routes for the applications api requests 
 
 // Load the application data objects
-var surveysData = require("../data/friends");
+var friendsData = require("../data/friends");
 
 // Function to check for duplicate name
 var isDuplicateName = (newSurvey) => {
-  var value = surveysData.find(function(survey) {
+  var value = friendsData.surveysData.find(function(survey) {
     return (newSurvey.name === survey.name);
   });
   return value;
@@ -31,7 +31,7 @@ var findMatch = (newSurvey) => {
     desiredGender = Math.floor(Math.random() * (4 - 1) + 1).toString();
 
   // Create array of friends based on gender
-  var genderArray = surveysData.filter(function(survey) {
+  var genderArray = friendsData.surveysData.filter(function(survey) {
     // Don't match on identical names...
     if (survey.name !== newSurvey.name)
       if (survey.gender === desiredGender) return survey;
@@ -71,7 +71,7 @@ module.exports = function(app) {
   app.get("/api/friends", function(req, res) {
 
     // Return all survey(s
-    res.json(surveysData);
+    res.json(friendsData.surveysData);
   });
   
   // New survey route
@@ -83,7 +83,7 @@ module.exports = function(app) {
 
     // Check for duplicate name before pushing new friend to current list
     if (isDuplicateName(req.body) == null)
-      surveysData.push(req.body);
+    friendsData.surveysData.push(req.body);
 
     // Return the best match
     res.json(matchedSurvey);
